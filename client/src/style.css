@@ -36,3 +36,18 @@ h2 {
 .dailyDetails {
     padding: 10pt;
 }
+.navBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.vacationForm {
+    padding-top: 20pt;
+    justify-content: center;
+}
+.logoutLink {
+    color: rgb(77, 0, 128);
+    text-decoration: underline;
+    /* padding: 0; */
+    line-height: 100%;
+}

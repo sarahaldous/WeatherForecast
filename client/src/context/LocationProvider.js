@@ -55,8 +55,8 @@ class LocationProvider extends Component {
         }
         this.addSavedCity(newLocation)
     }
-    getSavedLocation = id =>{
-        axios.get(`/locations/user/${this.props.usersID}`).then(response =>{
+    getSavedLocations = id =>{
+        locationAxios.get(`/api/weather/`).then(response =>{
             this.setState({
                 mySavedLocations: response.data
             })
