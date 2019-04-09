@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withLocation} from '../../context/LocationProvider.js'
 
 
+
 class SavedLocations extends Component {
     
        componentDidMount(){
@@ -14,7 +15,8 @@ class SavedLocations extends Component {
         return (
             <div>
             <p>{location.city},  {location.state}</p>
-            <p></p>
+            <button onClick={this.props.handleDelete}>Edit</button>
+            <button>Delete</button>
             </div>
         )
         })
