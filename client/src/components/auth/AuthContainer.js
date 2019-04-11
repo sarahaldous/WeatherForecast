@@ -62,7 +62,7 @@ constructor(){
                             handleSubmit={this.handleLogin}
                             username={this.state.username}
                             password={this.state.password}
-                            btnText="Login"
+                            btnText="Log In"
                         />
                         <p style={{color: 'crimson'}}>{this.props.errMsg}</p>
                         <p onClick={this.toggler}>Not a member?</p>

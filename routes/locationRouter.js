@@ -15,7 +15,6 @@ locationRouter.get('/', (req, res, next) => {
 })
 // Add a location to the user's saved locations
 locationRouter.post('/', (req, res, next) => {
-    console.log(req.params)
    const newLocation = new Locations(req.body)
    newLocation.user = req.user._id
    newLocation.save((err, userLocation) => {
@@ -29,12 +28,13 @@ locationRouter.post('/', (req, res, next) => {
 
 //Delete a user's saved location
 locationRouter.delete("/:_id", (req, res, next) => {
-   Locations.findOneAndRemove({_id: req.params._id}, (err, deletedLocation) => {
+    console.log(req.params._id)
+   Locations.findOneAndRemove({_id : req.params._id}, (err, deletedLocation) => {
        if(err) {
            res.status(500)
            return next(err)
        }
-       return res.status(202).send(`${deletedLocation.title} removed.`)
+       return res.status(202).send(`${deletedLocation.city} removed.`)
    })
 })
 
