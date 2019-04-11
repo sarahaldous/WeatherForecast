@@ -15,7 +15,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     text-align: center;
-} */
+}
 .weeklyInfo {
     border: 1px solid black;
     
@@ -35,6 +35,7 @@ h2 {
 }
 .dailyDetails {
     padding: 10pt;
+    text-shadow: 1px 1px gray;
 }
 .navBar {
     display: flex;

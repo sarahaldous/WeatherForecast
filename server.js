@@ -5,14 +5,16 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const expressJwt = require('express-jwt')
 const PORT = process.env.PORT || 8000
+const path = require("path")
 
 
 // Middlewares that fire on every request
 app.use(express.json()) //Parses objects - req.body
 app.use(morgan('dev'))
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 //DB Connect
-mongoose.connect("mongodb://localhost:27017/packingDB", {useNewUrlParser: true}, () => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/packingDB", {useNewUrlParser: true}, () => {
     console.log("[@] Connected to the DB")
 })
 
@@ -32,7 +34,9 @@ app.use((err, req, res, next) => {
     }
     return res.send({errMsg: err.message})
 })
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.listen(PORT, () => {
     console.log(`[*] Server is running on Port ${PORT}`)
 })
