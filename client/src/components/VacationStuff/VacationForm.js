@@ -16,7 +16,8 @@ const VacationForm = (props) => {
                     name="city"
                     placeholder="City"
                     value={props.city}
-                    onChange={props.handleChange}/>
+                    onChange={props.handleChange}
+                    onFocus={props.handleFocus}/>
             <input  type="text"
                     name="state"
                     placeholder="State or Country"

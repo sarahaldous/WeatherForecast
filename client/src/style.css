@@ -15,7 +15,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     text-align: center;
-} */
+}
 .weeklyInfo {
     border: 1px solid black;
     
@@ -35,4 +35,20 @@ h2 {
 }
 .dailyDetails {
     padding: 10pt;
+    text-shadow: 1px 1px gray;
+}
+.navBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.vacationForm {
+    padding-top: 20pt;
+    justify-content: center;
+}
+.logoutLink {
+    color: rgb(77, 0, 128);
+    text-decoration: underline;
+    /* padding: 0; */
+    line-height: 100%;
 }

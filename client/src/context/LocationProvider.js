@@ -55,8 +55,8 @@ class LocationProvider extends Component {
         }
         this.addSavedCity(newLocation)
     }
-    getSavedLocation = id =>{
-        axios.get(`/locations/user/${this.props.usersID}`).then(response =>{
+    getSavedLocations = id =>{
+        locationAxios.get(`/api/weather/`).then(response =>{
             this.setState({
                 mySavedLocations: response.data
             })
@@ -65,7 +65,8 @@ class LocationProvider extends Component {
     }
     // user will be able to delete a saved location with handle delete 
     handleDelete = id => {
-        axios.delete(`/locations/${id}`).then(response => {
+        console.log(id)
+        locationAxios.delete(`api/weather/${id}`).then(response => {
             alert(response.data)
             this.setState(prevState => ({
                 mySavedLocations: prevState.mySavedLocations.filter(location => location._id !==  id)

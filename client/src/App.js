@@ -8,6 +8,8 @@ import NotFound from './components/NotFound.js'
 import WeatherDisplay from './components/VacationStuff/WeatherDisplay.js'
 import VacationForm from './components/VacationStuff/VacationForm'
 import LocationProvider from './context/LocationProvider.js'
+import SavedLocations from './components/VacationStuff/SavedLocations.js'
+import NavBar from './Navbar.js'
 
 const App = (props) => {
     const {user, token, logout} = props
@@ -16,6 +18,7 @@ const App = (props) => {
     props.location.pathname.slice(2) 
     return (
         <div>
+            <NavBar />
             <Switch>
                 <Route
                     exact path="/"
@@ -53,6 +56,14 @@ const App = (props) => {
                     path="/weather"
                     redirectTo="/login"
                     component={WeatherDisplay}
+                    username={user.username}
+                    logout={logout}
+                    />
+                <ProtectedRoute
+                    token={token}
+                    path="/locations"
+                    redirectTo="/login"
+                    component={SavedLocations}
                     username={user.username}
                     logout={logout}
                     />

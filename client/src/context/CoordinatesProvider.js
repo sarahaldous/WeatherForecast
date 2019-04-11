@@ -27,8 +27,6 @@ class CoordinatesProvider extends Component {
             forecast: []
         }
     }
-    
-
     getCoordinatesData = props => {
         const titleCase = (str) => {
             const strSplit = str.split(" ")
@@ -62,6 +60,9 @@ class CoordinatesProvider extends Component {
             [e.target.name]: e.target.value
         })
     }
+    handleFocus = (e) => {
+        e.target.select()
+    }
     handleSubmit = (e) => {
         e.preventDefault()
         this.setState(prevState => {
@@ -83,7 +84,8 @@ class CoordinatesProvider extends Component {
                     ...this.state,
                     getCoordinatesData:this.getCoordinatesData,
                     handleChange:this.handleChange,
-                    handleSubmit:this.handleSubmit
+                    handleSubmit:this.handleSubmit,
+                    handleFocus: this.handleFocus
                 }}>
                 {this.props.children}
                 </CoordinatesContext.Provider>
