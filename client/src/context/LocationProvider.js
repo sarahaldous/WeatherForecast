@@ -65,7 +65,8 @@ class LocationProvider extends Component {
     }
     // user will be able to delete a saved location with handle delete 
     handleDelete = id => {
-        locationAxios.delete(`/locations/${id}`).then(response => {
+        console.log(id)
+        locationAxios.delete(`api/weather/${id}`).then(response => {
             alert(response.data)
             this.setState(prevState => ({
                 mySavedLocations: prevState.mySavedLocations.filter(location => location._id !==  id)

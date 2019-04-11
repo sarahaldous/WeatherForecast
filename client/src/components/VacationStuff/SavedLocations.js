@@ -12,11 +12,13 @@ class SavedLocations extends Component {
 
     
     let mappedSavedLocations = this.props.mySavedLocations.map((location, i) => {
+        console.log(location)
         return (
             <div>
             <p>{location.city},  {location.state}</p>
-            <button onClick={this.props.handleDelete}>Edit</button>
-            <button>Delete</button>
+           
+            <button onClick={() => this.props.handleDelete(location._id)}>Delete</button>
+            
             </div>
         )
         })
